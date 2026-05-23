@@ -737,7 +737,7 @@ elements:[
   {name:"オパール",meaning:"多面的な美しさ・あらゆる可能性が同時に輝く"}
 ],
 imageUrl:"https://dl.dropboxusercontent.com/scl/fi/jtbus6s88fqioh1hlk9ad/oracleapp_s1.png?rlkey=xgu3eowygb50dfxm3w8t1lxls&st=m6f0ujn0",
-special:true,specialSymbol:"✦"},
+special:true,specialSymbol:"∞✦"},
 
 {id:"s2",en:"\"I Am All\" and Source Resonance",ja:"\"全は我なり\"と源との共鳴",
 soul:"あなたが探していた宇宙は、あなたの外にはない。\n目を閉じた、その奥に——ずっとここにあった。",
@@ -751,7 +751,7 @@ elements:[
   {name:"セレナイト",meaning:"天界と直結する最高振動の癒しの石。あらゆる負のエネルギーを瞬時に浄化。魂を源の光へと導く"}
 ],
 imageUrl:"https://dl.dropboxusercontent.com/scl/fi/ylec9edtnawkbvq18k7lf/oracleapp_s2.png?rlkey=ymk7jq01rd09az3l5hf5zhplq&st=b4a8tga1",
-special:true,specialSymbol:"✧"}
+special:true,specialSymbol:"∞✧"}
 ];
 
 // ========== 以下はアプリの動作コード（変更不要）==========
@@ -796,7 +796,7 @@ function drawCard(){
 }
 function render(){
   const c=cur;
-  document.getElementById('num-label').textContent='No. '+c.id+' / 44';
+  document.getElementById('num-label').textContent='c.special ? c.specialSymbol+' / 46' : 'No. '+c.id+' / 44';
   document.getElementById('title-en').textContent='– '+c.en+' –';
   document.getElementById('title-ja').textContent=c.ja;
   document.getElementById('soul-msg').textContent=c.soul;
