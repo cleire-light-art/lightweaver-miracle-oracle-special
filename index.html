@@ -209,6 +209,15 @@ body{font-family:'Noto Serif JP','ヒラギノ明朝 Pro',serif;}
 
 .inner{display:flex;flex-direction:column;min-height:100vh;}
 .footer{margin-top:auto;padding:1.5rem 1rem 1.5rem;text-align:center;font-size:11px;color:rgba(140,120,175,0.6);letter-spacing:0.08em;font-family:'Noto Serif JP',serif;}
+
+.special-badge{
+  font-size:12px;
+  letter-spacing:0.2em;
+  color:rgba(180,140,80,0.85);
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  margin-top:2px;
+}
 </style>
 
 <div class="app" id="app">
@@ -223,6 +232,7 @@ body{font-family:'Noto Serif JP','ヒラギノ明朝 Pro',serif;}
         <div class="logo-main">Miracle Oracle</div>
       </div>
       <p>光を紡ぐ、奇跡のオラクル</p>
+    <p class="special-badge">✦ Special Edition ✦</p>
     </div>
 
     <div class="mode-select">
@@ -231,8 +241,8 @@ body{font-family:'Noto Serif JP','ヒラギノ明朝 Pro',serif;}
     </div>
 
     <div id="num-area" style="display:none;" class="num-area">
-      <input type="number" id="card-num" min="1" max="44" placeholder="1 〜 44 の番号を入力" />
-      <p id="num-err" class="err-msg" style="display:none;">1〜44の番号を入力してください</p>
+      <input type="number" id="card-num" min="1" max="46" placeholder="1〜44、麒麟=45、源神=46" />
+      <p id="num-err" class="err-msg" style="display:none;">1〜46の番号を入力してください（麒麟=45、源神=46）</p>
     </div>
 
     <button class="draw-btn" id="main-btn" onclick="drawCard()">✨ カードを引く ✨</button>
@@ -775,8 +785,12 @@ function drawCard(){
   else{
     const n=parseInt(document.getElementById('card-num').value);
     const err=document.getElementById('num-err');
-    if(!n||n<1||n>44){err.style.display='block';return;}
-    err.style.display='none';card=CARDS[n-1];isRev=false;
+    if(!n||n<1||n>46){err.style.display='block';return;}
+    err.style.display='none';
+    if(n===45){card=CARDS.find(c=>c.id==='s1');}
+    else if(n===46){card=CARDS.find(c=>c.id==='s2');}
+    else{card=CARDS[n-1];}
+    isRev=false;
   }
   cur=card;activePos=isRev?'reversed':'upright';render();
 }
